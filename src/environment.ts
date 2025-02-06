@@ -18,10 +18,9 @@ export async function validateAsteraiConfig(
     try {
         const config = {
             ASTERAI_AGENT_ID:
-                runtime.getSetting("ASTERAI_AGENT_ID") ||
-                process.env.ASTERAI_AGENT_ID,
+                runtime.getSetting("ASTERAI_AGENT_ID"),
             ASTERAI_PUBLIC_QUERY_KEY:
-                runtime.getSetting("ASTERAI_PUBLIC_QUERY_KEY") || process.env.ASTERAI_PUBLIC_QUERY_KEY,
+                runtime.getSetting("ASTERAI_PUBLIC_QUERY_KEY")
         };
 
         return envSchema.parse(config);

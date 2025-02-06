@@ -12,8 +12,8 @@ var envSchema = z.object({
 async function validateAsteraiConfig(runtime) {
   try {
     const config = {
-      ASTERAI_AGENT_ID: runtime.getSetting("ASTERAI_AGENT_ID") || process.env.ASTERAI_AGENT_ID,
-      ASTERAI_PUBLIC_QUERY_KEY: runtime.getSetting("ASTERAI_PUBLIC_QUERY_KEY") || process.env.ASTERAI_PUBLIC_QUERY_KEY
+      ASTERAI_AGENT_ID: runtime.getSetting("ASTERAI_AGENT_ID"),
+      ASTERAI_PUBLIC_QUERY_KEY: runtime.getSetting("ASTERAI_PUBLIC_QUERY_KEY")
     };
     return envSchema.parse(config);
   } catch (error) {
@@ -151,9 +151,7 @@ var asteraiPlugin = {
 var index_default = asteraiPlugin;
 export {
   asteraiPlugin,
-  asteraiProvider,
   index_default as default,
-  getInitAsteraiClient,
-  validateAsteraiConfig
+  getInitAsteraiClient
 };
 //# sourceMappingURL=index.js.map

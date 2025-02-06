@@ -1,10 +1,6 @@
-import {asteraiProvider} from "./providers/asterai.provider.ts";
-import type { Plugin } from "@elizaos/core";
+import {asteraiProvider} from "./providers/asterai.provider";
 import { queryAction } from "./actions/query";
 import { AsteraiClient } from "@asterai/client";
-
-export * from "./environment";
-export * from "./providers/asterai.provider";
 
 let asteraiClient: AsteraiClient | null = null;
 
@@ -21,7 +17,7 @@ export const getInitAsteraiClient = (
     return asteraiClient;
 };
 
-export const asteraiPlugin: Plugin = {
+export const asteraiPlugin = {
     name: "asterai",
     description: "asterai Plugin for Eliza",
     providers: [asteraiProvider],
